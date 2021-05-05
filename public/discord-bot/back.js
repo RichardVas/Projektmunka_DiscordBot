@@ -64,35 +64,3 @@ function hozzaad()
 
 
 }
-/*
-function getjson()
-{
-	var tbox = document.getElementById("option1");
-	var cont = tbox.value;
-	console.log(cont)
-	
-	//console.log("Submitted");
-}
-*/
-
-    
-
-
-
-function getjson2()
-{
-	//var tbox = document.getElementById("Select1");
-	var Slist= document.getElementsByTagName("Select");
-	console.log(Slist);
-	writeFile('./helloworld.txt', 'Hello World!', function (err) {
-		if (err) return console.log(err);
-		console.log('Hello World > helloworld.txt');
-	});
-	/*for (i in Slist){
-		console.log(i);
-	}*/
-
-
-	
-	//console.log("Submitted");
-}
