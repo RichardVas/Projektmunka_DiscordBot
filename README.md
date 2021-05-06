@@ -9,6 +9,8 @@ Socket.io <br/>
 <br/>
 A szerver futtatható a node server.js paranccsal, saját mappájából.
 <br/>
+/*A bothoz tartozó TOKEN egyedi és nem oszthatom meg, más felhasználó esetén új tokent kell generálni és az original_bot.js -t kell kiválasztani.*/<br/>
+//Jelenleg kódban lévő TOKEN nem aktuális! <br/>
 <br/>
 ![alt text](https://github.com/RichardVas/Projektmunka_DiscordBot/blob/main/Pictures/runserver.png)
 <br/>
