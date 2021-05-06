@@ -1,5 +1,11 @@
+/* 
+This back.js contains the necessary backend functions to maintain
+the webpage and the iteractions between modules
+
+*/
 
 
+// an object that contains the given paramters in the future
 class Rules{
 	constructor(){var tomb=[]}
 	tomb2 = ["opt1","opt2","opt3"];
@@ -7,7 +13,7 @@ class Rules{
 }
 
 function myfunc(){
-	console.log("Hello & Szoszi");
+	console.log("Hello");
 	}
 function steal(){	
 	var tbox = document.getElementById("box")
@@ -38,7 +44,7 @@ function hozzaad()
 	var toparse= new Rules();
 	var tmp = toparse.gettomb2();
 
-	for(var i=0;i<3;++i)
+	for(var i=0;i<2;++i)
 	{
 		var cella = document.createElement("td");
 		sor.append(cella);
@@ -46,7 +52,7 @@ function hozzaad()
 		SelectList.id="Select2"
 
 		/*nester for loopja, ide jönnek az optionok a selectbe*/
-		for(var j=0;j<3;j++){
+		for(var j=0;j<2;j++){
 		var option = document.createElement("option");
 		option.id="option1"
 		option.value = "proba1";
@@ -64,3 +70,6 @@ function hozzaad()
 
 
 }
+
+
+    
