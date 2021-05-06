@@ -9,6 +9,7 @@ socket.on('message',message =>{
 
 });
 
+//upon clicking the submit button, this function emits the given parameter
 function setParam()
 {
   var tbox = document.getElementById("box");
