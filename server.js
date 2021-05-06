@@ -8,14 +8,20 @@ const PORT = 3001 || process.env.PORT;
 const server = http.createServer(app);
 const io = socketio(server);
 
-//set static folder
+//Set the constant folder of the webpage
 app.use(express.static(path.join(__dirname,'public')));
 
-//run when a client connects
+// Socket communications
 io.on('connection',socket => {
     console.log('Uj kliens!!')
 
-    socket.emit('message',{ name: "John" });
+    socket.emit('message','Üdv a szerveren!');
+
+    //send the the paramter as message(parame)
+    socket.on('param',msg => {
+        console.log('tovabbitottam a parametert');
+        io.emit('parame',msg)
+    });
 });
 
 
