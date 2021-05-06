@@ -5,28 +5,22 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
-			integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
-			crossorigin="anonymous"
+
 		/>
 		<link rel="stylesheet" href="css/style.css" />
-		<title>Vaganyszerverem</title>
+		<title>Webpage</title>
 	</head>
 	<body>
 		<div class="vertical-menu">
-            <a href="#" class="active">Home</a>
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
-            <a href="#">Link 4</a>
+            <a href="#" class="active">Rule</a>
+            <a href="#">Rule 1</a>
+            <a href="#">Rule 2</a>
+            <a href="#">Rule 3</a>
+            <a href="#">Rule 4</a>
           </div>
-          <select name="Select">
-            <option value="option1">Option1</option>
-            <option value="option2">Option2</option>
 
          </select>
-         <table id="torzs">
+         <table id="torzs"><align="center">
             <tr>
             <td>
                 <select name="Select" id=Select1>
@@ -54,10 +48,10 @@
             <td><input type="text" id="box" input value = "text"></td>
         </div>
 
-        <button id="sub" onclick = getjson2()>Submit</button>
+        <button id="sub" onclick = setParam()>Submit</button>
         <button onclick=onDownload()>Download</button>
         <script src="/socket.io/socket.io.js"></script>
-		<script src="discord-bot/main.js"></script>
+		<script src="discord-bot/client.js"></script>
         <script src="discord-bot/back.js"></script>
         <script src="discord-bot/jsontest.js"></script>
         <script src="discord-bot/bot.js"></script>
