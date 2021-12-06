@@ -1,1 +1,0 @@
-start chrome "google.com"

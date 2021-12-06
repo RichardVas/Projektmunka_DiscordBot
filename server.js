@@ -160,7 +160,7 @@ function getDates(id)
 
 //const bot = new Client();
 /*a bot Tokenje, nem kozzeteheto az interneten!*/
-const TOKEN= 'ODExOTgzNDQxNjg3MDg1MDU3.YC6Igg.I8MqfuCpgaZU3m38RmK5GwXMGoY'
+const TOKEN= 'ODExOTgzNDQxNjg3MDg1MDU3.YC6Igg.NqfUWIPWNHxDbPznJsWHL3jkbho'
 role_dict = {}
 
 
