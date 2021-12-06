@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testy_Config</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="icon" href="images/disc_logo.png">
+    <script>
+        function updateTextInput(val) {
+        document.getElementById('range_num').value=val; 
+      }
+    </script>
+
+</head>
+<body>
+    <div class="navbar">
+        <div class="container">
+
+            <a class="logo" href="index.html">Testy<img class="disc" src=images/disc_logo.png alt="Discord"></a>
+
+
+            <nav>
+                <ul class="nav">
+                    <li><a href="index.html">Home</a></li>
+
+                    <li class="current"><a href="#">Config</a></li>
+                    <li><a href="state.html">State</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class = "text">
+        <div> <span class="subjectconf">Az alábbi táblázat segítségével konfigurálható a <span class="testy">Testy2</span> nevű <span class="testy">Discord Bot</span>.</span></div>
+        <div class="tableconf"> <span class="subjectconf">Jelenleg elérhető szabályok:</span></div>
+        <br>
+        <div class="tableconf"> <span class="tabletitle">Üdvözlés:</span><br> A megadott szöveg használatával a Bot üdvözli a paraméter küldőjét. pl.: !hello</div>
+        <br>
+        <div class="tableconf"> <span class="tabletitle">Kick:</span><br> A megadott paraméter és egy kirúgandó személy megtagelésével a Bot kickeli a betagelt felhasználót. pl.: !kick @MateVarga</div>
+        <br>
+        <div class="tableconf"> <span class="tabletitle">Filter:</span><br> A Bot ellátható profanity filterrel, amely kiszűri a nemkívánatos szavakat a csevegésből és jelzi ezt. pl.: bicikli</div>
+        <br>
+        <div class="tableconf"> <span class="tabletitle">Date:</span><br> A felparaméterezett paranccsal lekérhetjük a Bot-tól az aktuális dátumot. pl.: !date</div>
+        <br>
+        <div class="tableconf"><span class="tabletitle">Clean:</span><br> Adott paraméterre a Bot kitisztítja a chat historyt. pl.: !clean</div>
+        <br>
+        <div class="tableconf"><span class="tabletitle">Role:</span><br> Paraméterként megadott role-t ad a tagelt usernek. pl.: !role @MateVarga</div>
+        <br>
+        <div class="tableconf"><span class="tabletitle">Emoji:</span><br> Paraméterben adott emoji-val reagál a másik paraméterben megadott üzenetre a bot. pl.: !emoji</div>
+        <br>
+        <div> <span class="subjectconf">Az egyes utasításokra korlátozásokat is tehetünk.</span></div>
+        <div> <span class="subjectconf">Jelenleg elérhető korlátozások:</span></div>
+        <br>
+        <div class="tableconf"> <span class="tabletitle">Role:</span><br>Az egyes utasításoknak megadhatjuk, hogy azt a felhasználók csak akkor használhatják, ha a megadott role-lal rendelkeznek a szerveren. pl.: Pleb</div>
+        <br>
+        <div class="tableconf"> <span class="tabletitle">Channel:</span><br>Az egyes utasításoknak megadhatjuk, hogy azt a felhasználók csak akkor használhatják, ha a megadott channel-re írnak a szerveren. pl.: bot_commands</div>
+        <br>
+        <div class="tableconf"> <span class="tabletitle">Date:</span><br>Az egyes utasításoknak megadhatjuk, hogy azt a felhasználók csak bizonyos időpontok között használhassák. pl.: 2021. 11. 28. 19:54:12 - 2021. 11. 28. 21:54:12</div>
+        <br>
+        <div class="tableconf"> <span class="tabletitle">Onjoin:</span><br>Az egyes utasításoknak megadhatjuk, hogy azok automatikusan hajtódjanak végre, ha valaki felcsatlakozik a szerverre.</div>
+        <br>
+        <div class="subj">A létrehozott utasításokat a <span class="testy">Testy2</span> bot által látogatott <span class="testy">Discord</span> szervereken lehet alkalmazni, miután a Bot be lett léptetve.</div>
+        <div class="torzs">
+            <!--<span class="tabletitle">Select        Field        Trigger          Inp   </span>-->
+            <table>
+                <th colspan="7" class="tableheader">
+                    Utasítás       
+                    <span class="long">Botmessage
+                    Trigger
+                    Role
+                    Channel
+                    Date
+                   <!--- OnJoin--></span></th>
+                    <table id="MyTable" >
+                        <tr id="torzs">
+                          <!-- <label for="select0">  faszkivan</label><br>--> 
+                        </tr>
+                        <tr>
+                            
+                            <td>  
+                                
+                                <button id="newrow" class="newrow" onclick = init()>+</button>
+                                <button id="remove" class="newrow" onclick = removeline()>-</button>
+                            </td>
+                        </tr>
+                    </table>
+                    <table>
+                        <tr>
+                            <td>
+                                <label for="textbox">Words to filter:</label>
+                                        <br>
+                                <textarea id="textbox" rows="4" cols="50"></textarea>
+                            </td>
+                            <td>
+                                <form>
+                        <input type="radio" name="choice" value="warn" id="choice-warn" checked = true> 
+                        <label for="choice-warn">Warn before kick</label>
+
+                      <!--  <label for="warnmsg">Give a Warnings messag</label>-->
+
+                        <input type = "text" name = "warnmsg" id = "warnmsg" placeholder="Warning message">
+                        
+                        <br></br>
+                        <input type="radio" name="choice" value="zero" id="choice-zero">
+                        <label for="choice-zero">ZeroTolerance</label><br></br>
+                        
+                    </form>
+                
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                             <!--  <button id="btn">Show Selected Value</button>--> 
+                             <label for="Spam">Automated Message</label>
+
+                            <input type = "text" name = "Spam" id="spammsg" placeholder="Message to Spam">
+
+                            </td>
+                            <td>
+                                <label for="Interval">Valassz intervallumot:</label>
+
+                                <input type="range" name="rangeInput" min="0" max="100" onchange="updateTextInput(this.value);">
+                                <input type="text" id="range_num" value="">
+                                
+                            </td>
+                        </tr>
+                        <tr>
+                
+                        </tr>
+                    </table>
+                    <div class="buttons">
+                        
+                        <button id="submit" class="submit" onclick = submit()>Submit</button>
+                        <button id="save" class="submit" onclick = elment()>Save</button>
+            
+                    </div>
+                    
+                </div>
+    
+
+    
+
+    
+</body>
+<script script src = 'back.js'></script>
+<script src="/socket.io/socket.io.js"></script>
+<!--<script src = "C:\JavaScript\Weblap\current_gui\server.js"></script>-->
+
+<!--<script src="discord-bot/client.js"></script>
+<script src="discord-bot/bot.js"></script>-->
+
+
+    
+</body>
+
+</html>
