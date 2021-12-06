@@ -4,7 +4,7 @@
 
 class Rules{
 	constructor(){var tomb=[]}
-	tomb2 = ["Udvozles","Kick","Filter","Date","Clean", 'Role', 'Emoji','Spam','Picture'];
+	tomb2 = ["Udvozles","Kick","Filter","Date","Clean", 'Role', 'Emoji','Spam','Picture','Query'];
     tomb3 = ["Uzenet","Role", "Ido", "Channel"]
     //tomb2 = ["Udvozles","Kick","Filter","Date","Role"];
 	gettomb2(){return this.tomb2};
@@ -307,6 +307,8 @@ function elment()
     var spammsg = "spammsg"
     var rangctn = "range_num"
 
+    var onjoin = "onjoin"
+    var onjrang ="onjrang"
 
     console.log(Manager.getids());
 
@@ -362,6 +364,9 @@ function elment()
         var spammsg_content = document.getElementById(spammsg)
         var slider_content = document.getElementById(rangctn)
 
+        var onjoin_content = document.getElementById(onjoin)
+        var onjrang_content = document.getElementById(onjrang)
+
 
        // console.log(op.value)
         jsonData[tmp] = op.value
@@ -380,6 +385,9 @@ function elment()
         jsonData[warningmessage] = warningmessage_content.value
         jsonData[spammsg]=spammsg_content.value
         jsonData[rangctn] = slider_content.value
+
+        jsonData[onjoin] = onjoin_content.value
+        jsonData[onjrang] = onjrang_content.value
 
 
 

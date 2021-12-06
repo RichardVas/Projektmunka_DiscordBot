@@ -203,12 +203,14 @@ ul {
 
 .subjectconf {
   font-weight: bold;
-  font-size: 1.2em;
+  font-size: 1.5em;
+  text-align: center;
 }
 
 .tableconf {
-  margin-left: 20em;
-  margin-right: 20em;
+  margin-left: 30%;
+  margin-right: 30%;
+  text-align: center;
 }
 
 .tableheader {

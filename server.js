@@ -4,9 +4,9 @@ const Discord = require('discord.js');
 var sqlite3 = require('sqlite3').verbose();
 //var db = new sqlite3.Database(':memory:');
 
-let db = new sqlite3.Database('test.db');
+let db = new sqlite3.Database('new.db');
 //db.run('CREATE TABLE actions(time text, sender text, content text, channel text, botname text)');
-
+//db.run('DROP TABLE actions')
 const bot = new Discord.Client();
 
 const express = require('express');
@@ -26,7 +26,7 @@ app.use(express.static(path.join(__dirname,'proto')));
 
 function flood(interv, to_send)
 {
-  var intrvl = interv
+  var intrvl = interv*1000
   var t_channel = bot.channels.find(channel => channel.id === '914567939984855101')
   setInterval( () =>{
     t_channel.send(to_send)
@@ -55,14 +55,7 @@ function tofilter(){
 }
 function parser2(Select_param,proba_input,dict)
 {
-/* Select +id -> Trigger+id -> inp +id -> field+id */
-/*
-megtalalom az udvozles Selectjét, menetem az id-t
-megnézem az olyan id-s triggereket, megnézem hogy uzenet e a value
-ha igen, akkor az olyan id-s inpt összevetem a messagel,
-ha igen akkor field+id valuet kiiratom.
 
-*/
 for (var key in dict){
     if(dict[key] == Select_param){
        // {console.log(key.substr(-1),dict[key])
@@ -106,6 +99,7 @@ var select_values = ["Udvozles","Kick","Filter","Date","Clean", 'Role', 'Emoji']
 //var dataset = [];
 
 var dict = {}
+
 io.on('connection',socket => {
     console.log('Uj kliens!!')
 
@@ -167,6 +161,7 @@ function getDates(id)
 //const bot = new Client();
 /*a bot Tokenje, nem kozzeteheto az interneten!*/
 const TOKEN= 'ODExOTgzNDQxNjg3MDg1MDU3.YC6Igg.I8MqfuCpgaZU3m38RmK5GwXMGoY'
+role_dict = {}
 
 
 bot.login(TOKEN);
@@ -195,12 +190,13 @@ bot.on('ready', () => {
 
 /*UJ MESSAGE HANDLING STARTS HERE*/
 bot.on('message', msg =>{
-  if(msg.author.bot) return;
+  //if(msg.author.bot) return;
+
   //console.log(msg.content) /* amit irtal ebben van benne */
   firstword = getFirstWord(msg.content)
   console.log(firstword)
 
-  var select_values = ["Udvozles","Kick","Filter","Date","Clean", 'Role', 'Emoji','Spam','Picture'];
+  var select_values = ["Udvozles","Kick","Filter","Date","Clean", 'Role', 'Emoji','Spam','Picture','Query'];
 
   for (var i in select_values)
   {
@@ -267,7 +263,15 @@ bot.on('message', msg =>{
            }
            else if(dict[str] == 'Emoji'){
               // msg.react('🥰')
-               msg.react(udv[0])
+              emoji_map ={}
+              emoji_map['mosolygósfej'] = '😀'
+              emoji_map['szomorú'] = '😞'
+              emoji_map['sírós'] = '😭'
+              emoji_map['mérges'] = '😡'
+
+
+               emoji_to_react = emoji_map[udv[0]]
+               msg.react(emoji_to_react)
               // msg.channel.send(':dagger:')
                
            }
@@ -296,7 +300,7 @@ bot.on('message', msg =>{
  //             var role = msg.member.roles.cache.find(role => role.name === 'Pleb')
               // console.log(mmbr._roles)
               role = msg.guild.roles.find(role => role.name === udv[0])
-              role_dict = {}
+              
              // role_dict['@everyone'] = 811973521633837106
               role_dict['Godmode'] = '902966003829440512'
               role_dict['Admin'] = '917157344138379264'
@@ -322,6 +326,21 @@ bot.on('message', msg =>{
               }
             }
             //ez jön
+            else if(dict[str] == 'Query'){
+              var tmp_query = []
+              let sql = 'SELECT * FROM actions';
+              db.all(sql, [], (err, rows) => {
+                if (err) {
+                  throw err;
+                }
+               // msg.channel.send()
+                rows.forEach((row) => {
+                  tmp_query.push(row.time,row.sender,row.content,row.channel,row.botname);
+                });
+                msg.channel.send(tmp_query);
+              });
+             
+            }
             else if(dict[str] == 'Clean'){
               
                 
@@ -377,6 +396,13 @@ bot.on('voiceStateUpdate', (oldMember, newMember) => {
 
      // User Joins a voice channel
      console.log('csatlakozott',newMember.nickname,/*newMember*/)
+     var onj_channel = bot.channels.find(channel => channel.id === '914567939984855101');
+    // onj_channel.send(dict['onjoin'])
+     onj_channel.send('!role '+ newMember)
+     var ranktogive = dict['onjrang']
+    /*906581193493995530 pleb */
+     //newMember.addRole('906581193493995530')
+     
 
   } else if(newUserChannel === undefined){
 
@@ -446,11 +472,19 @@ bot.on('message', msg =>{
   }
 
 });
+bot.on('message', msg =>{
+  if(msg.content === '!help')
+  {
+    msg.reply('My name is Testy2, I am here to help. If you are having trouble configuring me, please follow this link : http://localhost:3001/guide.html')
+  }
+
+});
+
 
 bot.on('message', msg =>{
  // if(msg.author.bot) return;
   var record = []
-  var tmp_query = []
+ 
   record[0] =  new Date().toLocaleString();
   record[1] = msg.author.username
   record[2] = msg.content
@@ -463,18 +497,34 @@ bot.on('message', msg =>{
     // get the last insert id
     console.log(`A row has been inserted with rowid ${this.lastID}`);
   });
-  let sql = 'SELECT * FROM actions';
-  db.all(sql, [], (err, rows) => {
-    if (err) {
-      throw err;
-    }
-    
-    rows.forEach((row) => {
-      tmp_query.push(row.time,row.sender,row.content,row.channel,row.botname);
-    });
-  });
+
   //const socket2 = io()
   //socket2.emit('query_res',tmp_query)
  // io.emit('query_res',tmp_query)
 //  console.log(document.getElementById('range_num').value)
 });
+
+bot.on('message', msg =>{
+  if(msg.content === '!query'){
+  var tmp_query = []
+  let sql = 'SELECT * FROM actions';
+  db.all(sql, [], (err, rows) => {
+    if (err) {
+      console.log('######',err)
+      throw err;
+    }
+   // msg.channel.send()
+    rows.forEach((row) => {
+      tmp_query.push(row.time,row.sender,row.content,row.channel,row.botname);
+    });
+    console.log('tmp_tomb',tmp_query[0])
+    msg.channel.send(tmp_query);
+  });
+  
+}
+
+});
+/*
+else if(dict[str] == 'Query'){
+
+}*/

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testy_Guide</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="icon" href="images/disc_logo.png">
+</head>
+<body>
+    <div class="navbar">
+        <div class="container">
+            <a class="logo" href="index.html">Testy<img class="disc" src=images/disc_logo.png alt="Discord"></a>
+
+
+            <nav>
+                <ul class="nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="config.html">Config</a></li>
+                    <li class="current"><a href="#">Guide</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class = "text">
+        <div class="tableconf"> <span class="subjectconf">A bot statikus, előre létrehozott utasításai:</span>
+            <br>
+            <br>
+            <span class="tabletitle">!help:</span><br> A bot elküldi a guide oldal linkjét a chatre.
+            <br>
+            <br>
+            <span class="tabletitle">!goodbye:</span><br> A bot kikapcsol.
+            <br>
+        </div>
+        <br>
+        <div class="tableconf"> <span class="subjectconf">A bot utasítások létrehozása a következő képpen zajlik:</span></div>
+        <br>
+        <div class="tableconf">A config oldalon található egy táblázat, melybe új sorok felvételével új utasításokat lehet létrehozni. A táblázat egyes oszlopai a következő dolgokat tartalmazzák:
+            <br>
+            <br><span class="tabletitle"> 1. oszlop: Utasítás </span><br> A bot által végrehajtandó utasítás.
+            <br>
+            <br><span class="tabletitle"> 2. oszlop: Botmessage </span><br> A bot által küldött szerverüzenet az utasítás végrehajtódása után. Az Emoji, a Picture és a Role utasítások esetében egy emojit, egy kép linkjét vagy az adandó role-t kell ide megadni.
+            <br>
+            <br><span class="tabletitle"> 3. oszlop: Trigger </span><br> A kifejezés, amit ha a bot észlel a szerverchaten akkor végrehajtja a hozzá tartozó utasításokat. A kifejezést csak a küldött üzenet elején érzékeli.
+            <br>
+            <br><span class="tabletitle"> 4. oszlop: Role </span><br> A role, ami nélkül a felhasználók nem tudják használni a hozzá tartozó utasítást.
+            <br>
+            <br><span class="tabletitle"> 5. oszlop: Channel </span><br> Az a csatorna, amin a bot a triggert érzékeli.
+            <br>
+            <br><span class="tabletitle"> 6. oszlop: Date </span><br> Két dátum, amik között a létrehozott utasítás használható.
+        </div>
+        <br>
+        <div class="tableconf"> <span class="subjectconf">Jelenleg elérhető utasítások:</span></div>
+        <br>
+        <div class="tableconf"> <span class="tabletitle">Üdvözlés:</span><br> A megadott szöveg használatával a Bot üdvözli a paraméter küldőjét. Használatára példa: !hello</div>
+        <br>
+        <div class="tableconf"> <span class="tabletitle">Kick:</span><br> A megadott paraméter és egy kirúgandó személy megtagelésével a Bot kickeli a betagelt felhasználót. Használatára példa: !kick @MateVarga</div>
+        <br>
+        <div class="tableconf"> <span class="tabletitle">Date:</span><br> A felparaméterezett paranccsal lekérhetjük a Bot-tól az aktuális dátumot. Használatára példa: !date</div>
+        <br>
+        <div class="tableconf"><span class="tabletitle">Clean:</span><br> Adott paraméterre a Bot kitisztítja a chat historyt. Használatára példa: !clean</div>
+        <br>
+        <div class="tableconf"><span class="tabletitle">Role:</span><br> Paraméterként megadott role-t ad a tagelt usernek. A kívánt role-t a Botmessage oszlopban lehet megadni! Használatára példa: !role @MateVarga</div>
+        <br>
+        <div class="tableconf"><span class="tabletitle">Emoji:</span><br> Paraméterben megadott emoji-val reagál a másik paraméterben megadott üzenetre a bot. A kívánt emoji-t a Botmessage oszlopban lehet megadni! Használatára példa: !emoji</div>
+        <br>
+        <div class="tableconf"> <span class="tabletitle">Spam:</span><br> A paraméterben megadott szöveget a Bot elkezdi folyamatosan küldeni. Használatára példa: !spam</div>
+        <br>
+        <div class="tableconf"> <span class="tabletitle">Picture:</span><br> A megadott képet a Bot elküldi. A kívánt kép linkjét a Botmessage oszlopban lehet megadni! Használatára példa: !picture</div>
+        <br>
+        <div class="tableconf"> <span class="tabletitle">Query:</span><br> Kilistázza a Bot jelenlegi futásának történéseit. Használatára példa: !query</div>
+        <br>
+        <div> <span class="subjectconf">Jelenleg elérhető korlátozások:</span></div>
+        <br>
+        <div class="tableconf"> <span class="tabletitle">Role:</span><br>Az egyes utasításoknak megadhatjuk, hogy azt a felhasználók csak akkor használhatják, ha a megadott role-lal rendelkeznek a szerveren. pl.: Officer</div>
+        <br>
+        <div class="tableconf"> <span class="tabletitle">Channel:</span><br>Az egyes utasításoknak megadhatjuk, hogy azt a felhasználók csak akkor használhatják, ha a megadott channel-re írnak a szerveren. pl.: bot_commands</div>
+        <br>
+        <div class="tableconf"> <span class="tabletitle">Date:</span><br>Az egyes utasításoknak megadhatjuk, hogy azt a felhasználók csak bizonyos időpontok között használhassák. pl.: 2021. 11. 28. 19:54:12 - 2021. 11. 28. 21:54:12</div>
+        <br>
+        <div> <span class="subjectconf">Configtáblázat alatti rész:</span></div>
+        <br>
+        <div class="tableconf"> <span class="tabletitle">+/-:</span><br>A + gombbal új sort adhatunk a táblázathoz, a - gombbal pedig elvehetünk.</div>
+        <br>
+        <div class="tableconf"> <span class="tabletitle">Words to filter:</span><br>A nagy szövegdobozba megadhatjuk a tiltott filterezendő szavakat szóközzel elválasztva. A szövegdoboz mellett beállíthatjuk, hogy ha valaki tiltott kifejezést használ a chaten akkor csak figyelmeztetést kapjon, vagy egyből kickelve legyen. A figyelmeztető üzenet is paraméterezhető.</div>
+        <br>
+        <div class="tableconf"> <span class="tabletitle">Automated message:</span><br>Megadhatunk egy üzenetet a Message to Spam szövegdobozba, amit a bot utána az Interval csúszkán, vagy a másik szövegdobozban megadott értékkel megegyező másodpercenként elküld a szerverre.</div>
+        <br>
+        <div class="tableconf"> <span class="tabletitle">OnJoin:</span><br>A message szövegdobozba megadhatunk egy üzenetet, amivel a Bot a szerverre újonnan felcsatlakozott felhasználókat automatikusan üdvözli. A rang szövegdobozba pedig egy role-t írhatunk, amit a Bot az összes új felhasználónak biztosítani fog.</div>
+        <br>
+        <div class="tableconf"> <span class="tabletitle">Save/Submit:</span><br>A save gombbal elmenthetjük, a Submit gombbal pedig elküldhetjük a Botnak a config adott állapotát. Ameddig nincs megnyomva a submit gomb, addig a Bot az előző lenyomáskori állapotot veszi figyelembe.</div>
+        <br>
+    </div>
+    
+</body>
+<script src="/socket.io/socket.io.js"></script>
+<script script src = 'back.js'></script>
+
+
+</html>
